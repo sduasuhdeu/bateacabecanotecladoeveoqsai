@@ -128,13 +128,7 @@ Escolha uma musica de 1-10.
 	} else if (command === 'np') {
 		if (!serverQueue) return msg.channel.send('Não tem nada tocando agora!');
 
-		const tocando = new Discord.RichEmbed()
-		.addField(`?? Tocando agora: **${serverQueue.songs[0].title}**`)
-		.setTimestamp()
-		.setFooter("LothusMusic");
-
-
-		return msg.channel.send({tocando});
+		return msg.channel.send(`Tocando agora: **${serverQueue.songs[0].title}**`);
 	} else if (command === 'queue') {
 		if (!serverQueue) return msg.channel.send('Não tem nada em queue');
 		return msg.channel.send(`
