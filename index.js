@@ -32,6 +32,12 @@ client.on('message', async msg => { // eslint-disable-line
 	command = command.slice(PREFIX.length)
 
 	if (command === 'play') {
+
+		if(!msg.member.hasPermission("MANAGE_MESSAGES")) {
+			return msg.channel.send("Você não tem permissão para este comando");
+		}
+
+
 		const voiceChannel = msg.member.voiceChannel;
 		if (!voiceChannel) return msg.channel.send('Você tem que estar em um canal para colocar uma musica');
 		const permissions = voiceChannel.permissionsFor(msg.client.user);
