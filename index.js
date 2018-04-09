@@ -77,7 +77,7 @@ Escolha uma musica de 1-10.
 					var video = await youtube.getVideoByID(videos[videoIndex - 1].id);
 				} catch (err) {
 					console.error(err);
-					return msg.channel.send('?? Não consegui encontrar nenhum video.');
+					return msg.channel.send('Não consegui encontrar nenhum video.');
 				}
 			}
 			return handleVideo(video, msg, voiceChannel);
@@ -85,7 +85,7 @@ Escolha uma musica de 1-10.
 	} else if (command === 'skip') {
 
 		if(!msg.member.hasPermission("MANAGE_MESSAGES")) {
-			return msg.channel.send("??Você não tem permissão para este comando");
+			return msg.channel.send("Você não tem permissão para este comando");
 		}
 
 		if (!msg.member.voiceChannel) return msg.channel.send('Você não está em nenhum canal');
@@ -100,39 +100,31 @@ Escolha uma musica de 1-10.
 	} else if (command === 'stop') {
 
 		if(!msg.member.hasPermission("MANAGE_MESSAGES")) {
-			return msg.channel.send("??Você não tem permissão para este comando");
+			return msg.channel.send("Você não tem permissão para este comando");
 		}
 
 		if (!msg.member.voiceChannel) return msg.channel.send('Você não está em nenhum canal');
 		if (!serverQueue) return msg.channel.send('Não tem nenhuma musica para dar stop');
 		serverQueue.songs = [];
 		serverQueue.connection.dispatcher.end('Deram stop.');
+		msg.channel.send("A musica foi parada.")
 		return undefined;
 	} else if (command === 'volume') {
 
 		if(!msg.member.hasPermission("MANAGE_MESSAGES")) {
-			return msg.channel.send("??Você não tem permissão para este comando");
+			return msg.channel.send("Você não tem permissão para este comando");
 		}
 
 		if (!msg.member.voiceChannel) return msg.channel.send('Você não está em nenhum canal');
 		if (!serverQueue) return msg.channel.send('Selecione um volume de 0 a 100');
 
-		const volume = new Discord.RichEmbed()
-		.addField(`O volume atual é: **${serverQueue.volume}**`)
-		.setTimestamp()
-		.setFooter("LothusMusic");
-
-		if (!args[1]) return msg.channel.send({volume});
+		if (!args[1]) return msg.channel.send(`O volume atual é: **${serverQueue.volume}**`);
 		serverQueue.volume = args[1];
 		if(parseInt(args[1]) > 5) return msg.channel.send("Escolha o volume entre 1 e 5");
 		serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 5);
 
-		const nvolume = new Discord.RichEmbed()
-		.addField(`O volume agora é: **${args[1]}**`)
-		.setTimestamp()
-		.setFooter("LothusMusic");
 
-		return msg.channel.send({nvolume});
+		return msg.channel.send(`O volume agora é: **${args[1]}**`);
 	} else if (command === 'np') {
 		if (!serverQueue) return msg.channel.send('Não tem nada tocando agora!');
 
@@ -152,36 +144,27 @@ ${serverQueue.songs.map(song => `**-** ${song.title}`).join('\n')}
 		`);
 	} else if (command === 'pause') {
 		if(!msg.member.hasPermission("MANAGE_MESSAGES")) {
-			return msg.channel.send("??Você não tem permissão para este comando");
+			return msg.channel.send("Você não tem permissão para este comando");
 		}
 
 		if (serverQueue && serverQueue.playing) {
 			serverQueue.playing = false;
 			serverQueue.connection.dispatcher.pause();
 
-			const pausei = new Discord.RichEmbed()
-			.addField("? Pausei a musica!")
-			.setTimestamp()
-			.setFooter("LothusMusic");
-
-			return msg.channel.send({pausei});
+			return msg.channel.send("Pausei a musica!");
 		}
 		return msg.channel.send('Não tem nenhuma musica para pausar.');
 	} else if (command === 'resume') {
 		if(!msg.member.hasPermission("MANAGE_MESSAGES")) {
-			return msg.channel.send("??Você não tem permissão para este comando");
+			return msg.channel.send("Você não tem permissão para este comando");
 		}
 
 		if (serverQueue && !serverQueue.playing) {
 			serverQueue.playing = true;
 			serverQueue.connection.dispatcher.resume();
 
-			const voltar = new Discord.RichEmbed()
-			.addField("? Voltei a tocar!")
-			.setTimestamp()
-			.setFooter("LothusMusic");
 
-			return msg.channel.send({voltar});
+			return msg.channel.send("Voltei a tocar!");
 		}
 		return msg.channel.send('Não tem nenhuma musica para voltar a tocar.');
 	}
@@ -221,15 +204,10 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
 		}
 	} else {
 
-		const tocar = new Discord.RichEmbed()
-		.addField(`? A musica **${song.title}** foi adicionada a queue!`)
-		.setTimestamp()
-		.setFooter("LothusMusic");
-
 		serverQueue.songs.push(song);
 		console.log(serverQueue.songs);
 		if (playlist) return undefined;
-		else return msg.channel.send({tocar});
+		else return msg.channel.send(`A musica **${song.title}** foi adicionada a queue!`);
 	}
 	return undefined;
 }
@@ -254,13 +232,8 @@ function play(guild, song) {
 		.on('error', error => console.error(error));
 	dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
 
-const tocandoagora = new Discord.RichEmbed()
-        .addField(`Tocando agora: **${serverQueue.songs[0].title}**`)
-        .setTimestamp()
-        .setFooter("LothusMusic");
 
-
-    serverQueue.textChannel.send({tocandoagora});
+    serverQueue.textChannel.send(`Tocando agora: **${serverQueue.songs[0].title}**`);
 }
 
 client.login(process.env.BOT_TOKEN);
