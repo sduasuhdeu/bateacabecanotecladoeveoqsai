@@ -199,7 +199,6 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
 	} else {
 
 		serverQueue.songs.push(song);
-		console.log(serverQueue.songs);
 		if (playlist) return undefined;
 		else return msg.channel.send(`A musica **${song.title}** foi adicionada a queue!`);
 	}
