@@ -255,7 +255,7 @@ function play(guild, song) {
 	dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
 
 const tocandoagora = new Discord.RichEmbed()
-        .addField(`?? Tocando agora: **${serverQueue.songs[0].title}**`)
+        .addField(`Tocando agora: **${serverQueue.songs[0].title}**`)
         .setTimestamp()
         .setFooter("LothusMusic");
 
