@@ -263,4 +263,4 @@ const tocandoagora = new Discord.RichEmbed()
     serverQueue.textChannel.send({tocandoagora});
 }
 
-client.login('NDMyNjY2MTUyMzA5ODgyOTAw.DawnTQ.ZjuN4W6zbSOLmUkE9wGPq0FcQNg');
+client.login(process.env.BOT_TOKEN);
