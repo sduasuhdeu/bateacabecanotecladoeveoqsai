@@ -37,7 +37,7 @@ client.on('message', async msg => { // eslint-disable-line
 			return;
 		}
 
-		message.delete().catch(O_O=>{});
+		msg.delete().catch(O_O=>{});
 
 		var embed = new Discord.RichEmbed()
 		.setAuthor("LothusMusica - Comandos", client.user.avatarURL)
@@ -54,7 +54,7 @@ client.on('message', async msg => { // eslint-disable-line
 		.setTimestamp()
 		.setFooter("LothusMusica BETA");
 
-		message.channel.send({embed});
+		msg.channel.send({embed});
 	}
 
 	if (command === 'play') {
