@@ -31,12 +31,37 @@ client.on('message', async msg => { // eslint-disable-line
 	let command = msg.content.toLowerCase().split(' ')[0];
 	command = command.slice(PREFIX.length)
 
-	if (command === 'play') {
-
-		if(!msg.member.hasPermission("MANAGE_MESSAGES")) {
-			return msg.channel.send("Você não tem permissão para este comando");
+	if(command == "help") {
+		
+		if(msg.channel.id != "402303684429611018") {
+			return;
 		}
 
+		message.delete().catch(O_O=>{});
+
+		var embed = new Discord.RichEmbed()
+		.setAuthor("LothusMusica - Comandos", client.user.avatarURL)
+		.addBlankField()
+		.addField("- !help", "Mostra esta lista de comandos.")
+		.addField("- !play", "Utilizado para adicionar uma música na lista")
+		.addField("- !pause", "Pausa a música atual")
+		.addField("- !resume", "Continua a música atual caso esteja pausada")
+		.addField("- !skip", "Pula a música atual para próxima da lista")
+		.addField("- !volume", "Altera o volume da música")
+		.addField("- !np", "Mosta a música atual que está tocando")
+		.addBlankField()
+		.addField("Desenvolvido por:", "HyperGalactic e wiigevaerd")
+		.setTimestamp()
+		.setFooter("LothusMusica BETA");
+
+		message.channel.send({embed});
+	}
+
+	if (command === 'play') {
+
+		if(msg.channel.id != "402303684429611018") {
+			return;
+		}
 
 		const voiceChannel = msg.member.voiceChannel;
 		if (!voiceChannel) return msg.channel.send('Você tem que estar em um canal para colocar uma musica');
@@ -90,6 +115,12 @@ Escolha uma musica de 1-10.
 		}
 	} else if (command === 'skip') {
 
+		
+		if(msg.channel.id != "402303684429611018") {
+			return;
+		}
+
+
 		if(!msg.member.hasPermission("MANAGE_MESSAGES")) {
 			return msg.channel.send("Você não tem permissão para este comando");
 		}
@@ -99,6 +130,10 @@ Escolha uma musica de 1-10.
 		serverQueue.connection.dispatcher.end('Deram skip');
 		return undefined;
 	} else if (command === 'stop') {
+		
+		if(msg.channel.id != "402303684429611018") {
+			return;
+		}
 
 		if(!msg.member.hasPermission("MANAGE_MESSAGES")) {
 			return msg.channel.send("Você não tem permissão para este comando");
@@ -111,6 +146,10 @@ Escolha uma musica de 1-10.
 		msg.channel.send("A musica foi parada.")
 		return undefined;
 	} else if (command === 'volume') {
+
+		if(msg.channel.id != "402303684429611018") {
+			return;
+		}
 
 		if(!msg.member.hasPermission("MANAGE_MESSAGES")) {
 			return msg.channel.send("Você não tem permissão para este comando");
@@ -127,6 +166,11 @@ Escolha uma musica de 1-10.
 
 		return msg.channel.send(`O volume agora é: **${args[1]}**`);
 	} else if (command === 'np') {
+		
+		if(msg.channel.id != "402303684429611018") {
+			return;
+		}
+
 		if (!serverQueue) return msg.channel.send('Não tem nada tocando agora!');
 
 		return msg.channel.send(`Tocando agora: **${serverQueue.songs[0].title}**`);
@@ -138,6 +182,11 @@ ${serverQueue.songs.map(song => `**-** ${song.title}`).join('\n')}
 **?? Tocando agora:** ${serverQueue.songs[0].title}
 		`);
 	} else if (command === 'pause') {
+		
+		if(msg.channel.id != "402303684429611018") {
+			return;
+		}
+
 		if(!msg.member.hasPermission("MANAGE_MESSAGES")) {
 			return msg.channel.send("Você não tem permissão para este comando");
 		}
@@ -150,6 +199,11 @@ ${serverQueue.songs.map(song => `**-** ${song.title}`).join('\n')}
 		}
 		return msg.channel.send('Não tem nenhuma musica para pausar.');
 	} else if (command === 'resume') {
+		
+		if(msg.channel.id != "402303684429611018") {
+			return;
+		}
+
 		if(!msg.member.hasPermission("MANAGE_MESSAGES")) {
 			return msg.channel.send("Você não tem permissão para este comando");
 		}
