@@ -96,11 +96,6 @@ Escolha uma musica de 1-10.
 
 		if (!msg.member.voiceChannel) return msg.channel.send('Você não está em nenhum canal');
 		if (!serverQueue) return msg.channel.send('Não tem nenhuma musica para dar skip.');
-		if(serverQueue.songs.size() <= 1) {
-			msg.channel.send("Só havia uma música no canal, então eu me desconectei.");
-			serverQueue.connection.dispatcher.end('Deram skip');
-			return;
-		}
 		serverQueue.connection.dispatcher.end('Deram skip');
 		return undefined;
 	} else if (command === 'stop') {
