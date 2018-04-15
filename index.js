@@ -76,7 +76,7 @@ client.on('message', async msg => { // eslint-disable-line
 		.setColor('#e0d90d')
 		.addField(":warning: EM MANUTENÇÃO :warning:", "O bot pode ficar instável nesse período ^-^")
 		.addBlankField()
-		.addField("Desenvolvedor aplicando as atualizações:", "wiigevaerd <@229025905014472705>")
+		.addField("Desenvolvedor aplicando as atualizações:", "<@229025905014472705>")
 		.addBlankField()
 		.addField("ID da atualização:", "d13052d9")
 		.addBlankField()
