@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const { TOKEN, PREFIX, GOOGLE_API_KEY } = require('./config');
 const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
+const superagent = require('superagent');
 
 const client = new Discord.Client();
 
@@ -283,5 +284,22 @@ function play(guild, song) {
 
     serverQueue.textChannel.send(`Tocando agora: **${serverQueue.songs[0].title}**`);
 }
+
+client.on('message', message =>{
+
+    if(message.content.startsWith("!cat")) {
+      let {body} = await superagent
+  .get(`http://aws.random.cat/meow`);
+
+  let catembed = new Discord.RichEmbed()
+  .setColor("#60ffc5")
+  .setTitle("Cat ;w; :cat:")
+  .setImage(body.file);
+
+  message.channel.send(catembed)
+
+}
+
+
 
 client.login(process.env.BOT_TOKEN);
