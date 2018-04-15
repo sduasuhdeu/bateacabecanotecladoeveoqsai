@@ -62,7 +62,7 @@ client.on('message', async msg => { // eslint-disable-line
 		msg.channel.send({embed});
 	}
 	
-		if(command == "status") {
+		if(command == "status1234567890") {
 		
 		if(msg.channel.id != "402303684429611018") {
 			return;
