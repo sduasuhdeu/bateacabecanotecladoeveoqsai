@@ -55,6 +55,7 @@ client.on('message', async msg => { // eslint-disable-line
 		.addField("Desenvolvido por:", "HyperGalactic e wiigevaerd")
 	        .addBlankField()
 		.addField("Versão", "1.0.0")
+	        .addBlankField()
 		.setTimestamp()
 		.setFooter("LothusMusica BETA");
 
