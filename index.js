@@ -72,7 +72,6 @@ client.on('message', async msg => { // eslint-disable-line
 		.addBlankField()
 		.setColor('#365be2')
                 .get(`http://aws.random.cat/meow`);
-		.addBlankField()
 		.addField("Desenvolvido por:", "HyperGalactic e wiigevaerd")
 		.setTimestamp()
 		.setFooter("LothusMusica BETA");
