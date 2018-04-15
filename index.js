@@ -21,14 +21,12 @@ client.on('disconnect', () => console.log('Desconectado'));
 client.on('reconnecting', () => console.log('Reconectando...'));
 
 client.on('ready', () =>{
+	
     client.user.setActivity('!comandos',
     {type: 'PLAYING', url: 'https://twitch.tv/wiigevaerd'});
     console.log('────────────────────────────');
     console.log('     LothusBOT iniciado     ');
     console.log('────────────────────────────');
-}
-
-client.on('ready', () =>{
 
 client.on('message', async msg => { // eslint-disable-line
 	if (msg.author.bot) return undefined;
