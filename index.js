@@ -42,6 +42,7 @@ client.on('message', async msg => { // eslint-disable-line
 		var embed = new Discord.RichEmbed()
 		.setAuthor("LothusMusica - Comandos", client.user.avatarURL)
 		.addBlankField()
+		.setColor('#365be2')
 		.addField("- !help", "Mostra esta lista de comandos.")
 		.addField("- !play", "Utilizado para adicionar uma música na lista")
 		.addField("- !pause", "Pausa a música atual")
