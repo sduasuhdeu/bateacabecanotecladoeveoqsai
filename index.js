@@ -283,28 +283,4 @@ function play(guild, song) {
     serverQueue.textChannel.send(`Tocando agora: **${serverQueue.songs[0].title}**`);
 }
 
-	if(command == "cat") {
-
-		msg.delete().catch(O_O=>{});
-		
-		module.exports.run = async (bot, message, args) => {
-
-  let {body} = await superagent
-  .get(`http://aws.random.cat/meow`);
-
-  let catembed = new Discord.RichEmbed()
-  .setColor("#60ffc5")
-  .setTitle("Um Gato :cat:")
-  .setImage(body.file);
-
-  message.channel.send(catembed)
-
-}
-
-module.exports.help = {
-  name: "cat"
-	}
-		
-});
-
 client.login(process.env.BOT_TOKEN);
