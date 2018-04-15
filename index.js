@@ -21,9 +21,6 @@ client.on('disconnect', () => console.log('Desconectado'));
 client.on('reconnecting', () => console.log('Reconectando...'));
 
 client.on('ready', () =>{
-	
-console.log(`LothusBOTPrefix: ${PREFIX}`);
-console.log(`Logado na conta ${client.user.tag} ^-^`);
     client.user.setActivity('!comandos',
     {type: 'PLAYING', url: 'https://twitch.tv/wiigevaerd'});
     console.log('────────────────────────────');
