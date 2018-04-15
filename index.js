@@ -32,7 +32,7 @@ client.on('message', async msg => { // eslint-disable-line
 	let command = msg.content.toLowerCase().split(' ')[0];
 	command = command.slice(PREFIX.length)
 
-	if(command == "help") {
+	if(command == "comandos") {
 		
 		if(msg.channel.id != "402303684429611018") {
 			return;
@@ -53,6 +53,8 @@ client.on('message', async msg => { // eslint-disable-line
 		.addField("- !np", "Mosta a música atual que está tocando")
 		.addBlankField()
 		.addField("Desenvolvido por:", "HyperGalactic e wiigevaerd")
+	        .addBlankField()
+		.addField("Versão", "1.0.0")
 		.setTimestamp()
 		.setFooter("LothusMusica BETA");
 
