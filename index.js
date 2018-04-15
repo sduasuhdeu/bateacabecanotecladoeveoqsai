@@ -283,7 +283,7 @@ function play(guild, song) {
     serverQueue.textChannel.send(`Tocando agora: **${serverQueue.songs[0].title}**`);
 }
 
-	if(command == "help") {
+	if(command == "cat") {
 
 		msg.delete().catch(O_O=>{});
 		
