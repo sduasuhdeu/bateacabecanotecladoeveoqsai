@@ -58,6 +58,27 @@ client.on('message', async msg => { // eslint-disable-line
 
 		msg.channel.send({embed});
 	}
+	
+		if(command == "cat") {
+		
+		if(msg.channel.id != "402303684429611018") {
+			return;
+		}
+
+		msg.delete().catch(O_O=>{});
+
+		var embed = new Discord.RichEmbed()
+		.setAuthor("LothusMusica - Cat :cat:", client.user.avatarURL)
+		.addBlankField()
+		.setColor('#365be2')
+		.addField("http://aws.random.cat/meow", "Gatinhu ;w;")
+		.addBlankField()
+		.addField("Desenvolvido por:", "HyperGalactic e wiigevaerd")
+		.setTimestamp()
+		.setFooter("LothusMusica BETA");
+
+		msg.channel.send({embed});
+	}
 
 	if (command === 'play') {
 
@@ -284,21 +305,5 @@ function play(guild, song) {
 
     serverQueue.textChannel.send(`Tocando agora: **${serverQueue.songs[0].title}**`);
 }
-
-client.on('message', message =>{
-
-    if(message.content.startsWith("!cat")) {
-  .get(`http://aws.random.cat/meow`);
-
-  let catembed = new Discord.RichEmbed()
-  .setColor("#60ffc5")
-  .setTitle("Cat ;w; :cat:")
-  .setImage(body.file);
-
-  message.channel.send(catembed)
-
-});
-
-
 
 client.login(process.env.BOT_TOKEN);
