@@ -20,6 +20,18 @@ client.on('disconnect', () => console.log('Desconectado'));
 
 client.on('reconnecting', () => console.log('Reconectando...'));
 
+client.on('ready', () =>{
+
+console.log(`WiightPrefix: ${prefix}`.cyan);
+console.log(`Logado na conta ${client.user.tag} ^-^`.bgMagenta);
+    client.user.setActivity('!comandos',
+    {type: 'PLAYING', url: 'https://twitch.tv/wiigevaerd'});
+    console.log('────────────────────────────'.bgBlue);
+    console.log('     LothusBOT iniciado     '.green);
+    console.log('────────────────────────────'.bgBlue);
+});
+
+
 client.on('message', async msg => { // eslint-disable-line
 	if (msg.author.bot) return undefined;
 	if (!msg.content.startsWith(PREFIX)) return undefined;
