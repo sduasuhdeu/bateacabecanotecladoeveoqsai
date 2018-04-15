@@ -304,5 +304,7 @@ function play(guild, song) {
 module.exports.help = {
   name: "cat"
 	}
+		
+});
 
 client.login(process.env.BOT_TOKEN);
