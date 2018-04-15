@@ -76,7 +76,7 @@ client.on('message', async msg => { // eslint-disable-line
 		.setColor('#e0d90d')
 		.addField(":warning: EM MANUTENÇÃO :warning:", "O bot pode ficar instável nesse período ^-^")
 		.addBlankField()
-		.addField("Atualização número: d13052d9")
+		.addField("ID da atualização: d13052d9")
 		.addBlankField();
 		.addField("Desenvolvido por:", "HyperGalactic e wiigevaerd")
 	        .addBlankField()
