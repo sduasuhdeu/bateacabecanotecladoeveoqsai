@@ -288,7 +288,6 @@ function play(guild, song) {
 client.on('message', message =>{
 
     if(message.content.startsWith("!cat")) {
-      let {body} = await superagent
   .get(`http://aws.random.cat/meow`);
 
   let catembed = new Discord.RichEmbed()
