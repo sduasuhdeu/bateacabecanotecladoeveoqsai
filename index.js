@@ -27,6 +27,7 @@ client.on('ready', () =>{
     console.log('────────────────────────────');
     console.log('     LothusBOT iniciado     ');
     console.log('────────────────────────────');
+});
 
 client.on('message', async msg => { // eslint-disable-line
 	if (msg.author.bot) return undefined;
