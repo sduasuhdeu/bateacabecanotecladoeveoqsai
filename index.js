@@ -26,7 +26,7 @@ client.on('ready', () =>{
     console.log('────────────────────────────');
     console.log('     LothusBOT iniciado     ');
     console.log('────────────────────────────');
-});
+}
 
 client.on('ready', () =>{
 
