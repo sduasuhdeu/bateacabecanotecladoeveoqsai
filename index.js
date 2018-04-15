@@ -99,6 +99,34 @@ client.on('message', async msg => { // eslint-disable-line
 		msg.channel.send({embed});
 	}
 	
+	        if(command == "status0987654321") {
+		
+		if(msg.channel.id != "402303684429611018") {
+			return;
+		}
+
+		msg.delete().catch(O_O=>{});
+
+		var embed = new Discord.RichEmbed()
+		.setAuthor("LothusMusica - Status", client.user.avatarURL)
+		.addBlankField()
+		.setColor('#0de01b')
+		.addField(":white_check_mark: ESTÁVEL :white_check_mark:", "O bot ja está pronto para uso ^-^")
+		.addBlankField()
+		.addField("Desenvolvedor que aplicou as atualizações:", "<@229025905014472705>")
+		.addBlankField()
+		.addField("ID da atualização:", "f18ba0c")
+		.addBlankField()
+		.addField("Desenvolvido por:", "HyperGalactic e wiigevaerd")
+	        .addBlankField()
+		.addField("Versão", "1.0.2")
+	        .addBlankField()
+		.setTimestamp()
+		.setFooter("LothusMusica BETA");
+
+		msg.channel.send({embed});
+	}
+	
 	if (command === 'play') {
 
 		if(msg.channel.id != "402303684429611018") {
