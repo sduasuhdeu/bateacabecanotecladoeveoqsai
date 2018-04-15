@@ -71,7 +71,7 @@ client.on('message', async msg => { // eslint-disable-line
 		.setAuthor("LothusMusica - Cat :cat:", client.user.avatarURL)
 		.addBlankField()
 		.setColor('#365be2')
-		.addField("http://aws.random.cat/meow", "Gatinhu ;w;")
+                .get(`http://aws.random.cat/meow`);
 		.addBlankField()
 		.addField("Desenvolvido por:", "HyperGalactic e wiigevaerd")
 		.setTimestamp()
