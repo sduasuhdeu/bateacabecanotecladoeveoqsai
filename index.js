@@ -126,6 +126,25 @@ client.on('message', async msg => { // eslint-disable-line
 
 		msg.channel.send({embed});
 	}
+		if(command == "markeslimpar") {
+      if(!message.member.roles.find("name", "⚜️ Coordenador")) {
+            message.reply("Apenas o <@343728177438392320> pode utilizar este comando.")
+            return;
+        }
+        if (message.channel.type == 'text') {
+          message.channel.fetchMessages()
+            .then(messages => {
+              message.channel.bulkDelete(messages);
+              messagesDeleted = messages.array().length;
+              message.channel.send("O chat foi limpo pelo " + message.author + ".");
+              console.log('O markes deletou as msgs>> numero deletado: '+messagesDeleted)
+            })
+            .catch(err => {
+              console.log('Não foi possivel deletar as mensagens.');
+              console.log(err);
+  });
+            }
+        }
 	
 	if (command === 'play') {
 
