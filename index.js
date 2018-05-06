@@ -36,11 +36,15 @@ client.on('message', msg =>{
 	if (msg.author.bot) return undefined;
 	if (!msg.content.startsWith(PREFIX)) return undefined;
 
-	const args = msg.content.split(' ');
-
 	if(msg.content.startsWith("!addchangelog")) {
-		const argsc = msg.content.slice(1).split('');
-		let change = argsc.join(' ');
+
+		if(msg.member.id != "298139759463890944") {
+			msg.channel.send("**BETA-CMD**: Comando disponível atualmente apenas para HyperGalactic#0001");
+			return;
+		}
+
+
+		let change = msg.content.split(' ').slice(1).join(' ');
 
 
 		var today = new Date();
@@ -65,10 +69,10 @@ client.on('message', msg =>{
 
 	if(msg.content.startsWith("!markeslimpar")) {
 
-		const argsc = msg.content.slice(1).trim().split(/ +/g);
+		let argsc = msg.content.split(' ').slice(1).join(' ');
 
 		msg.delete().catch(O_o=>{});
-  if(!msg.member.roles.find("name", "⚜️ Coordenador")) {
+	  if(!msg.member.roles.find("name", "⚜️ Coordenador")) {
 		msg.reply("Apenas o iMarkes pode utilizar este comando.")
 		return;
 	}
