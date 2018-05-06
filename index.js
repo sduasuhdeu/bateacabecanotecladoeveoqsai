@@ -166,10 +166,10 @@ client.on('message', async msg => { // eslint-disable-line
             msg.reply("Apenas o iMarkes pode utilizar este comando.")
             return;
         }
-			if(args <= 2) return msg.channel.send(":x: Por favor insira um valor maior que 2 para limpar.");
-			if(!args) return msg.channel.send(":x: Use !markeslimpar <quantidade de mensagens>");
+			if(parseInt(args[0]) <= 2) return msg.channel.send(":x: Por favor insira um valor maior que 2 para limpar.");
+			if(parseInt(!args[0])) return msg.channel.send(":x: Use !markeslimpar <quantidade de mensagens>");
 		
-			msg.channel.bulkDelete(args[0]).catch(error => msg.reply(":x: Um erro ocorreu, contate um administrador para mais informações"));
+			msg.channel.bulkDelete(parseInt(args[0])).catch(error => msg.reply(":x: Um erro ocorreu, contate um administrador para mais informações"));
 		   
 		msg.channel.send(`Chat Clear | Foram limpas **${args[0]}** mensagens por ${msg.author}.`);
 
