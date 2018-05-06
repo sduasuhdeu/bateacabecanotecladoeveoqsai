@@ -38,7 +38,7 @@ client.on('message', msg =>{
 
 	if(msg.content.startsWith("!addchangelog")) {
 
-		if(msg.member.id != "298139759463890944" || msg.member.id != "229025905014472705") {
+		if(msg.member.id != "298139759463890944") {
 			msg.channel.send(":x: **Acesso Negado:** Operação cancelada.");
 			return;
 		}
