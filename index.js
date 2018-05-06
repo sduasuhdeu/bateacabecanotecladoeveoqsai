@@ -68,21 +68,21 @@ client.on('message', msg =>{
 	}
 
 
-	if(msg.content.startsWith("!markeslimpar")) {
+		if(msg.content.startsWith("!markeslimpar")) {
 
-		let argsc = msg.content.split(' ').slice(1).join(' ');
+		let argsg = message.content.slice(1).trim().split(/ +/g);
 
 		msg.delete().catch(O_o=>{});
 	  if(!msg.member.roles.find("name", "⚜️ Coordenador")) {
 		msg.reply("Apenas o iMarkes pode utilizar este comando.")
 		return;
 	}
-		if(argsc <= 2) return msg.channel.send(":x: Por favor insira um valor maior que 2 para limpar.");
-		if(!argsc) return msg.channel.send(":x: Use !markeslimpar <quantidade de mensagens>");
-	
-		msg.channel.bulkDelete(parseInt(argsc[0])).catch(error => msg.reply(":x: Um erro ocorreu, contate um administrador para mais informações"));
-	   
-	msg.channel.send(`Chat Clear | Foram limpas **${argsc[0]}** mensagens por ${msg.author}.`);
+	if(argsg <= 2) return msg.channel.send(":x: Por favor insira um valor maior que 2 para limpar.");
+    if(!argsg) return msg.channel.send(":x: Use !cc <quantidade de mensagens>");
+
+    msg.channel.bulkDelete(argsg[0]).catch(error => msg.reply(":x: Um erro ocorreu, contate um administrador para mais informações"));
+   
+	msg.channel.send(`Chat Clear | Foram limpas **${argsg[0]}** mensagens por ${msg.author}.`);
 
 }
 });
