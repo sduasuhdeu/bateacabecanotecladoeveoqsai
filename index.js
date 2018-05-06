@@ -38,7 +38,8 @@ client.on('message', msg =>{
 
 	if(msg.content.startsWith("!addchangelog")) {
 
-		if(msg.member.id != "298139759463890944") {
+
+	if(!message.member.roles.find("name", "💻 Discord Developer")) {
 			msg.channel.send(":x: **Acesso Negado:** Operação cancelada.");
 			return;
 		}
@@ -62,7 +63,7 @@ client.on('message', msg =>{
 		
 		getData = dd + '/' + mm + '/' + yyyy;
 
-		LothusHook.custom("Lothus - Changelog",`:white_small_square: ${change}`,`${getData}`,"#65ff00", "");
+		LothusHook.custom("Lothus - Changelog",`:white_small_square: ${change}`,`Changelog - Atualização:`,"#65ff00", `${msg.author.avatarURL}`);
 		
 		msg.channel.send(":white_check_mark: Operação efetuada com Sucesso");
 	}
