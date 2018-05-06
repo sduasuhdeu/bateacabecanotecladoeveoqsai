@@ -31,7 +31,7 @@ client.on('ready', () =>{
     console.log('────────────────────────────');
 });
 
-client.on('message', async msg => { // eslint-disable-line
+client.on('message', msg => { // eslint-disable-line
 	if (msg.author.bot) return undefined;
 	if (!msg.content.startsWith(PREFIX)) return undefined;
 
@@ -49,12 +49,7 @@ client.on('message', async msg => { // eslint-disable-line
 		const argsc = msg.content.slice(1).trim().split(/ +/g);
 		let change = argsc.join(' ');
 
-		LothusHook.custom("Lothus - Changelog",`:white_small_square: ${change}`,`${getData}`,"#65ff00", "");
 
-	}
-
-
-	function getData() {
 		var today = new Date();
 		var dd = today.getDate();
 		var mm = today.getMonth()+1; 
@@ -68,9 +63,14 @@ client.on('message', async msg => { // eslint-disable-line
 			mm = '0'+mm
 		} 
 		
-		today = mm + '/' + dd + '/' + yyyy;
-		return today;
-		}
+		getData = mm + '/' + dd + '/' + yyyy;
+
+		LothusHook.custom("Lothus - Changelog",`:white_small_square: ${change}`,`${getData}`,"#65ff00", "");
+
+	}
+
+
+
 
 
 
