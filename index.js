@@ -132,19 +132,16 @@ client.on('message', async msg => { // eslint-disable-line
             return;
         }
         if (message.channel.type == 'text') {
-          message.channel.fetchMessages()
-            .then(messages => {
-              message.channel.bulkDelete(messages);
-              messagesDeleted = messages.array().length;
-              message.channel.send("O chat foi limpo pelo " + message.author + ".");
-              console.log('O markes deletou as msgs>> numero deletado: '+messagesDeleted)
-            })
-            .catch(err => {
-              console.log('Não foi possivel deletar as mensagens.');
-              console.log(err);
-  });
-            }
-        }
+			message.delete().catch(O_o=>{});
+
+			if(args <= 2) return message.channel.send(":x: Por favor insira um valor maior que 2 para limpar.");
+			if(!args) return message.channel.send(":x: Use !markeslimpar <quantidade de mensagens>");
+		
+			message.channel.bulkDelete(args[0]).catch(error => message.reply(":x: Um erro ocorreu, contate um administrador para mais informações"));
+		   
+		message.channel.send(`Chat Clear | Foram limpas **${args[0]}** mensagens por ${message.author}.`);
+		}
+	}
 	
 	if (command === 'play') {
 
