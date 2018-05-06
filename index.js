@@ -39,7 +39,7 @@ client.on('message', msg =>{
 	const args = msg.content.split(' ');
 
 	if(msg.content.startsWith("!addchangelog")) {
-		const argsc = msg.content.slice(1).trim().split(/ +/g);
+		const argsc = msg.content.slice(1).split('');
 		let change = argsc.join(' ');
 
 
