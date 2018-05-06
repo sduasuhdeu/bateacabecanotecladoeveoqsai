@@ -66,6 +66,7 @@ client.on('message', msg =>{
 		
 		msg.channel.send(":white_check_mark: Operação efetuada com Sucesso");
 	}
+});
 
 client.on('message', async msg => { // eslint-disable-line
 	if (msg.author.bot) return undefined;
