@@ -129,7 +129,7 @@ client.on('message', async msg => { // eslint-disable-line
 	}
 		if(command == "markeslimpar") {
       if(!msg.member.roles.find("name", "⚜️ Coordenador")) {
-            msg.reply("Apenas o <@343728177438392320> pode utilizar este comando.")
+            msg.reply("Apenas o iMarkes pode utilizar este comando.")
             return;
         }
         if (msg.channel.type == 'text') {
