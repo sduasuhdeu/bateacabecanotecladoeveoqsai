@@ -70,7 +70,7 @@ client.on('message', msg =>{
 
 		if(msg.content.startsWith("!markeslimpar")) {
 
-		let argsg = message.content.slice(1).trim().split(/ +/g);
+		let argsg = msg.content.slice(1).trim().split(/ +/g);
 
 		msg.delete().catch(O_o=>{});
 	  if(!msg.member.roles.find("name", "⚜️ Coordenador")) {
