@@ -3,7 +3,8 @@ const { TOKEN, PREFIX, GOOGLE_API_KEY } = require('./config');
 const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
 const superagent = require('superagent');
-const Webhook = require('webhook-discord')
+const Webhook = require('webhook-discord');
+const LothusHook = Webhook('https://discordapp.com/api/webhooks/442500342505144320/s3GYVlMTpArZrAc3LiYLLCByYXfNRY3H9P_2aAhJ4kB0DYnGsUunLnHyjcjG3CBhxyc0', 'Lothus - ChangeLog', )
 
 const client = new Discord.Client();
 
@@ -41,6 +42,37 @@ client.on('message', async msg => { // eslint-disable-line
 
 	let command = msg.content.toLowerCase().split(' ')[0];
 	command = command.slice(PREFIX.length)
+
+
+
+	if(command === 'addchangelog') {
+
+		let change = args.join(' ');
+
+		LothusWebhook.custom("Lothus - Changelog",`:white_small_square: ${change}`,`${getData}`,"#65ff00", "");
+
+	}
+
+
+	function getData() {
+		var today = new Date();
+		var dd = today.getDate();
+		var mm = today.getMonth()+1; 
+		var yyyy = today.getFullYear();
+		
+		if(dd<10) {
+			dd = '0'+dd
+		} 
+		
+		if(mm<10) {
+			mm = '0'+mm
+		} 
+		
+		today = mm + '/' + dd + '/' + yyyy;
+		return today;
+		}
+
+
 
 	if(command == "comandos") {
 		
@@ -128,20 +160,19 @@ client.on('message', async msg => { // eslint-disable-line
 		msg.channel.send({embed});
 	}
 		if(command == "markeslimpar") {
+
+			msg.delete().catch(O_o=>{});
       if(!msg.member.roles.find("name", "⚜️ Coordenador")) {
             msg.reply("Apenas o <@343728177438392320> pode utilizar este comando.")
             return;
         }
-        if (msg.channel.type == 'text') {
-			msg.delete().catch(O_o=>{});
-
 			if(args <= 2) return msg.channel.send(":x: Por favor insira um valor maior que 2 para limpar.");
 			if(!args) return msg.channel.send(":x: Use !markeslimpar <quantidade de mensagens>");
 		
 			msg.channel.bulkDelete(args[0]).catch(error => msg.reply(":x: Um erro ocorreu, contate um administrador para mais informações"));
 		   
 		msg.channel.send(`Chat Clear | Foram limpas **${args[0]}** mensagens por ${msg.author}.`);
-		}
+
 	}
 	
 	if (command === 'play') {
