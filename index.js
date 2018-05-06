@@ -64,7 +64,7 @@ client.on('message', msg =>{
 
 		LothusHook.custom("Lothus - Changelog",`:white_small_square: ${change}`,`${getData}`,"#65ff00", "");
 		
-		message.channel.send(":white_check_mark: Operação efetuada com Sucesso");
+		msg.channel.send(":white_check_mark: Operação efetuada com Sucesso");
 	}
 
 
@@ -77,7 +77,7 @@ client.on('message', msg =>{
 		msg.reply("Apenas o iMarkes pode utilizar este comando.")
 		return;
 	}
-		if(argsc[1] <= 2) return msg.channel.send(":x: Por favor insira um valor maior que 2 para limpar.");
+		if(argsc <= 2) return msg.channel.send(":x: Por favor insira um valor maior que 2 para limpar.");
 		if(!argsc) return msg.channel.send(":x: Use !markeslimpar <quantidade de mensagens>");
 	
 		msg.channel.bulkDelete(parseInt(argsc[0])).catch(error => msg.reply(":x: Um erro ocorreu, contate um administrador para mais informações"));
