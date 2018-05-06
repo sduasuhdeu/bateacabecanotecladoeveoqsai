@@ -67,26 +67,6 @@ client.on('message', msg =>{
 		msg.channel.send(":white_check_mark: Operação efetuada com Sucesso");
 	}
 
-
-		if(msg.content.startsWith("!markeslimpar")) {
-
-		let argsg = msg.content.slice(1).trim().split(/ +/g);
-
-		msg.delete().catch(O_o=>{});
-	  if(!msg.member.roles.find("name", "⚜️ Coordenador")) {
-		msg.reply("Apenas o iMarkes pode utilizar este comando.")
-		return;
-	}
-	if(argsg <= 2) return msg.channel.send(":x: Por favor insira um valor maior que 2 para limpar.");
-    if(!argsg) return msg.channel.send(":x: Use !cc <quantidade de mensagens>");
-
-    msg.channel.bulkDelete(argsg).catch(error => msg.reply(":x: Um erro ocorreu, contate um administrador para mais informações"));
-   
-	msg.channel.send(`Chat Clear | Foram limpas **${argsg}** mensagens por ${msg.author}.`);
-
-}
-});
-
 client.on('message', async msg => { // eslint-disable-line
 	if (msg.author.bot) return undefined;
 	if (!msg.content.startsWith(PREFIX)) return undefined;
