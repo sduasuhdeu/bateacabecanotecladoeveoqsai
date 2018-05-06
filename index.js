@@ -163,7 +163,7 @@ client.on('message', async msg => { // eslint-disable-line
 
 			msg.delete().catch(O_o=>{});
       if(!msg.member.roles.find("name", "⚜️ Coordenador")) {
-            msg.reply("Apenas o <@343728177438392320> pode utilizar este comando.")
+            msg.reply("Apenas o iMarkes pode utilizar este comando.")
             return;
         }
 			if(args <= 2) return msg.channel.send(":x: Por favor insira um valor maior que 2 para limpar.");
