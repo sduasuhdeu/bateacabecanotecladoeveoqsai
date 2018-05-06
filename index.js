@@ -46,8 +46,8 @@ client.on('message', async msg => { // eslint-disable-line
 
 
 	if(command === 'addchangelog') {
-
-		let change = args.join(' ');
+		const argsc = msg.content.slice(1).trim().split(/ +/g);
+		let change = argsc.join(' ');
 
 		LothusWebhook.custom("Lothus - Changelog",`:white_small_square: ${change}`,`${getData}`,"#65ff00", "");
 
@@ -161,17 +161,19 @@ client.on('message', async msg => { // eslint-disable-line
 	}
 		if(command == "markeslimpar") {
 
+			const argsc = msg.content.slice(1).trim().split(/ +/g);
+
 			msg.delete().catch(O_o=>{});
       if(!msg.member.roles.find("name", "⚜️ Coordenador")) {
             msg.reply("Apenas o iMarkes pode utilizar este comando.")
             return;
         }
-			if(parseInt(args[0]) <= 2) return msg.channel.send(":x: Por favor insira um valor maior que 2 para limpar.");
-			if(parseInt(!args[0])) return msg.channel.send(":x: Use !markeslimpar <quantidade de mensagens>");
+			if(argsc[1] <= 2) return msg.channel.send(":x: Por favor insira um valor maior que 2 para limpar.");
+			if(!argsc) return msg.channel.send(":x: Use !markeslimpar <quantidade de mensagens>");
 		
-			msg.channel.bulkDelete(parseInt(args[0])).catch(error => msg.reply(":x: Um erro ocorreu, contate um administrador para mais informações"));
+			msg.channel.bulkDelete(parseInt(argsc[0])).catch(error => msg.reply(":x: Um erro ocorreu, contate um administrador para mais informações"));
 		   
-		msg.channel.send(`Chat Clear | Foram limpas **${args[0]}** mensagens por ${msg.author}.`);
+		msg.channel.send(`Chat Clear | Foram limpas **${argsc[0]}** mensagens por ${msg.author}.`);
 
 	}
 	
