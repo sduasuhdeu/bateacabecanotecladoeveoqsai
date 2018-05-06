@@ -3,6 +3,7 @@ const { TOKEN, PREFIX, GOOGLE_API_KEY } = require('./config');
 const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
 const superagent = require('superagent');
+const Webhook = require('webhook-discord')
 
 const client = new Discord.Client();
 
@@ -127,19 +128,19 @@ client.on('message', async msg => { // eslint-disable-line
 		msg.channel.send({embed});
 	}
 		if(command == "markeslimpar") {
-      if(!message.member.roles.find("name", "⚜️ Coordenador")) {
-            message.reply("Apenas o <@343728177438392320> pode utilizar este comando.")
+      if(!msg.member.roles.find("name", "⚜️ Coordenador")) {
+            msg.reply("Apenas o <@343728177438392320> pode utilizar este comando.")
             return;
         }
-        if (message.channel.type == 'text') {
-			message.delete().catch(O_o=>{});
+        if (msg.channel.type == 'text') {
+			msg.delete().catch(O_o=>{});
 
-			if(args <= 2) return message.channel.send(":x: Por favor insira um valor maior que 2 para limpar.");
-			if(!args) return message.channel.send(":x: Use !markeslimpar <quantidade de mensagens>");
+			if(args <= 2) return msg.channel.send(":x: Por favor insira um valor maior que 2 para limpar.");
+			if(!args) return msg.channel.send(":x: Use !markeslimpar <quantidade de mensagens>");
 		
-			message.channel.bulkDelete(args[0]).catch(error => message.reply(":x: Um erro ocorreu, contate um administrador para mais informações"));
+			msg.channel.bulkDelete(args[0]).catch(error => msg.reply(":x: Um erro ocorreu, contate um administrador para mais informações"));
 		   
-		message.channel.send(`Chat Clear | Foram limpas **${args[0]}** mensagens por ${message.author}.`);
+		msg.channel.send(`Chat Clear | Foram limpas **${args[0]}** mensagens por ${msg.author}.`);
 		}
 	}
 	
