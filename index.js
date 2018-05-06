@@ -49,7 +49,7 @@ client.on('message', async msg => { // eslint-disable-line
 		const argsc = msg.content.slice(1).trim().split(/ +/g);
 		let change = argsc.join(' ');
 
-		LothusWebhook.custom("Lothus - Changelog",`:white_small_square: ${change}`,`${getData}`,"#65ff00", "");
+		LothusHook.custom("Lothus - Changelog",`:white_small_square: ${change}`,`${getData}`,"#65ff00", "");
 
 	}
 
