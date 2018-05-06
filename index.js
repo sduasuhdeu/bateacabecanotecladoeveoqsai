@@ -80,9 +80,9 @@ client.on('message', msg =>{
 	if(argsg <= 2) return msg.channel.send(":x: Por favor insira um valor maior que 2 para limpar.");
     if(!argsg) return msg.channel.send(":x: Use !cc <quantidade de mensagens>");
 
-    msg.channel.bulkDelete(argsg[0]).catch(error => msg.reply(":x: Um erro ocorreu, contate um administrador para mais informações"));
+    msg.channel.bulkDelete(argsg).catch(error => msg.reply(":x: Um erro ocorreu, contate um administrador para mais informações"));
    
-	msg.channel.send(`Chat Clear | Foram limpas **${argsg[0]}** mensagens por ${msg.author}.`);
+	msg.channel.send(`Chat Clear | Foram limpas **${argsg}** mensagens por ${msg.author}.`);
 
 }
 });
