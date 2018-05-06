@@ -39,7 +39,7 @@ client.on('message', msg =>{
 	if(msg.content.startsWith("!addchangelog")) {
 
 		if(msg.member.id != "298139759463890944") {
-			msg.channel.send("**BETA-CMD**: Comando disponível atualmente apenas para HyperGalactic#0001");
+			msg.channel.send("**BETA-CMD**: Comando disponível atualmente apenas para HyperGalactic#0001 e para o wiigevaerd#0866");
 			return;
 		}
 
