@@ -34,7 +34,15 @@ client.on('ready', () =>{
 
 client.on('message', msg =>{
 	if (msg.author.bot) return undefined;
-	if (!msg.content.startsWith(PREFIX)) return undefined;
+	if (!msg.content.startsWith(PREFIX)) {
+
+		if(msg.channel.parentID == "382259732397686794") {
+
+			console.log(`[STAFF] ${msg.channel.name}: ${msg.content}`);
+
+		}
+
+	}
 
 	if(msg.content.startsWith("!addchangelog")) {
 
@@ -63,7 +71,7 @@ client.on('message', msg =>{
 		
 		getData = dd + '/' + mm + '/' + yyyy;
 
-		LothusHook.custom("Lothus - Changelog",`:white_small_square: ${change}`,`Changelog - Atualização:`,"#65ff00", `${msg.author.avatarURL}`);
+		LothusHook.custom("Lothus - Changelog",`:white_small_square: ${change}`,`${getData}`,"#65ff00", `${msg.author.avatarURL}`);
 		
 		msg.channel.send(":white_check_mark: Operação efetuada com Sucesso");
 	}
