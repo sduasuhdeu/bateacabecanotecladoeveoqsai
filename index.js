@@ -4,7 +4,7 @@ const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
 const superagent = require('superagent');
 const Webhook = require('webhook-discord');
-const LothusHook = new Webhook('https://discordapp.com/api/webhooks/442500342505144320/s3GYVlMTpArZrAc3LiYLLCByYXfNRY3H9P_2aAhJ4kB0DYnGsUunLnHyjcjG3CBhxyc0', 'Lothus - ChangeLog', )
+const LothusHook = new Webhook('https://discordapp.com/api/webhooks/442722550133555200/9Mgc56NN8_akGU4Osoe3PuynksScJ9iGCL4KOARQwE1ZkLUc2-tDuPfrlo43McNXOVHO', 'Lothus - ChangeLog', )
 
 const client = new Discord.Client();
 
@@ -38,8 +38,9 @@ client.on('message', msg =>{
 
 	if(msg.content.startsWith("!addchangelog")) {
 
-		if(msg.member.id != "298139759463890944") {
-			msg.channel.send("**BETA-CMD**: Comando disponível atualmente apenas para HyperGalactic#0001");
+
+	if(!msg.member.roles.find("name", "💻 Discord Developer")) {
+			msg.channel.send(":x: **Acesso Negado:** Operação cancelada.");
 			return;
 		}
 
@@ -60,30 +61,12 @@ client.on('message', msg =>{
 			mm = '0'+mm
 		} 
 		
-		getData = mm + '/' + dd + '/' + yyyy;
+		getData = dd + '/' + mm + '/' + yyyy;
 
-		LothusHook.custom("Lothus - Changelog",`:white_small_square: ${change}`,`${getData}`,"#65ff00", "");
-
+		LothusHook.custom("Lothus - Changelog",`:white_small_square: ${change}`,`Changelog - Atualização:`,"#65ff00", `${msg.author.avatarURL}`);
+		
+		msg.channel.send(":white_check_mark: Operação efetuada com Sucesso");
 	}
-
-
-	if(msg.content.startsWith("!markeslimpar")) {
-
-		let argsc = msg.content.split(' ').slice(1).join(' ');
-
-		msg.delete().catch(O_o=>{});
-	  if(!msg.member.roles.find("name", "⚜️ Coordenador")) {
-		msg.reply("Apenas o iMarkes pode utilizar este comando.")
-		return;
-	}
-		if(argsc[1] <= 2) return msg.channel.send(":x: Por favor insira um valor maior que 2 para limpar.");
-		if(!argsc) return msg.channel.send(":x: Use !markeslimpar <quantidade de mensagens>");
-	
-		msg.channel.bulkDelete(parseInt(argsc[0])).catch(error => msg.reply(":x: Um erro ocorreu, contate um administrador para mais informações"));
-	   
-	msg.channel.send(`Chat Clear | Foram limpas **${argsc[0]}** mensagens por ${msg.author}.`);
-
-}
 });
 
 client.on('message', async msg => { // eslint-disable-line
