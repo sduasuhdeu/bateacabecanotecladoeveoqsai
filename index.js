@@ -38,7 +38,7 @@ client.on('message', msg =>{
 
 		if(msg.channel.parentID == "382259732397686794") {
 
-			console.log(`[STAFF] ${msg.channel.name}: ${msg.content}`);
+			console.log(`[STAFF] [${msg.channel.name}] ${msg.author.username}: ${msg.content}`);
 
 		}
 
