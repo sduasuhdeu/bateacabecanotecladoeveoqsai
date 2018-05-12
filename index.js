@@ -405,4 +405,4 @@ function play(guild, song) {
     serverQueue.textChannel.send(`Tocando agora: **${serverQueue.songs[0].title}**`);
 }
 
-client.login(process.env.BOT_TOKEM);
+client.login(process.env.BOT_TOKEN);
