@@ -4,7 +4,7 @@ const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
 const superagent = require('superagent');
 const Webhook = require('webhook-discord');
-const LothusHook = new Webhook('https://discordapp.com/api/webhooks/442722550133555200/9Mgc56NN8_akGU4Osoe3PuynksScJ9iGCL4KOARQwE1ZkLUc2-tDuPfrlo43McNXOVHO', 'Lothus - ChangeLog', )
+const LothusHook = new Webhook('https://discordapp.com/api/webhooks/444692509554245632/nXKkOHrD5U6ZgcjEVHsUtVI4IUpE6IfE_MVWx4UiJ7yYZYWKhfZGyUNsUiOwRV3DBwnI', 'Lothus - ChangeLog', )
 
 const client = new Discord.Client();
 
