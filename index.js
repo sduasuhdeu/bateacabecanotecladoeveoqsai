@@ -38,7 +38,7 @@ client.on('message', msg =>{
 
 		if(msg.channel.parentID == "382259732397686794") {
 
-			if(msg.channel.id == "399761197316177920" || msg.channel.id == "399761260448841728" || msg.channel.id == "404008790711861268" || msg.channel.id == "404008900480729100" ||  msg.channel.id == "433302626596159499" ||  msg.channel.id == "433062254557265922" || msg.channel.id == "404009364534329358" || msg.channel.id == "217746384017817600") {
+			if(msg.channel.id == "399761197316177920" || msg.channel.id == "399761260448841728" || msg.channel.id == "404008790711861268" || msg.channel.id == "404008900480729100" ||  msg.channel.id == "433302626596159499" ||  msg.channel.id == "433062254557265922" || msg.channel.id == "404009364534329358") {
 				return;
 			}
 
