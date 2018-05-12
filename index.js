@@ -75,7 +75,7 @@ client.on('message', msg =>{
 		
 		getData = dd + '/' + mm + '/' + yyyy;
 
-		LothusHook.custom("Lothus - Changelog",`:white_small_square: ${change}`,"11/05/2018","#eac231", "");
+		LothusHook.custom("Lothus - Changelog",`:white_small_square: ${change}`,`${getData}`,"#eac231", "");
 		
 		msg.channel.send(":white_check_mark: Operação efetuada com Sucesso");
 	}
