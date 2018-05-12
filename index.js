@@ -51,7 +51,7 @@ client.on('message', msg =>{
 	if(msg.content.startsWith("!addchangelog")) {
 
 
-	if(!msg.member.roles.find("name", "💻 Discord Developer")) {
+	if(!msg.member.roles.find("name", "✏️ Changelog")) {
 			msg.channel.send(":x: **Acesso Negado:** Operação cancelada.");
 			return;
 		}
