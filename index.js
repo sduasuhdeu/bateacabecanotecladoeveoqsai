@@ -79,6 +79,24 @@ client.on('message', msg =>{
 		
 		msg.channel.send(":white_check_mark: Operação efetuada com Sucesso");
 	}
+
+	if(msg.content.startsWith("!jornalista")) {
+
+
+		if(!msg.member.roles.find("name", "💻 Discord Developer")) {
+			msg.channel.send(":x: **Acesso Negado:** Operação cancelada.");
+			return;
+		}
+		let change = msg.content.split(' ').slice(1).join(' ');
+
+		if(!change) return msg.channel.send('Insira um link.');
+
+		msg.channel.send(`**NOVO TÓPICO POR ${msg.author} \n Link: ${change}**`);
+
+	}
+
+
+
 });
 
 client.on('message', async msg => { // eslint-disable-line
