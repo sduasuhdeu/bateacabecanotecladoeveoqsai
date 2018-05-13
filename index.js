@@ -83,7 +83,7 @@ client.on('message', msg =>{
 	if(msg.content.startsWith("!jornalista")) {
 
 
-		if(!msg.member.roles.find("name", "💻 Discord Developer")) {
+		if(!msg.member.roles.find("name", "📝 Jornalista ")) {
 			msg.channel.send(":x: **Acesso Negado:** Operação cancelada.");
 			return;
 		}
@@ -91,7 +91,7 @@ client.on('message', msg =>{
 
 		if(!change) return msg.channel.send('Insira um link.');
 
-		msg.channel.send(`**NOVO TÓPICO POR ${msg.author} \n Link: ${change}**`);
+		msg.channel.send(`**NOVO TÓPICO POR ${msg.author} \nLink: ${change}**`);
 
 	}
 
