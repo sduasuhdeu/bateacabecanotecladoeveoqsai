@@ -110,7 +110,7 @@ client.on('message', msg =>{
 	}
 
 
-	if(msg.content.startsWith("!jornalista")) {
+	if(msg.content.startsWith("!entrar")) {
 
 		var Data = new Date();
 		var Fuso = Data.getTimezoneOffset()/60 - 3;
