@@ -98,9 +98,13 @@ client.on('message', msg =>{
 		.addField('Link:', `${change}`)
 		.addField('Autor:', `${msg.author}`)
 		.setTimestamp()
+		.setFooter('System by HyperGalactic#0001')
 		.setColor("#00FFFF");
 
 		msg.channel.send(embed);
+
+		var canal = msg.guild.channels.get('401716866642345985');
+		canal.send(embed);
 		msg.delete().catch(O_o=>{});
 	}
 
