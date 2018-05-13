@@ -183,7 +183,7 @@ client.on('message', msg =>{
 		
 		getData = dd + '/' + mm + '/' + yyyy;
 
-		if(!msg.member.roles.find("name", "🌐 Staff")) {
+		if(!msg.member.roles.find("name", " 🌐 Staff")) {
 			msg.channel.send(":x: **Acesso Negado:** Operação cancelada.");
 			return;
 		}
