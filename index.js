@@ -91,7 +91,16 @@ client.on('message', msg =>{
 
 		if(!change) return msg.channel.send('Insira um link.');
 
-		msg.channel.send(`**NOVO TÓPICO POR ${msg.author} \nLink: ${change}**`);
+		var embed = new Discord.RichEmbed()
+		.setAuthor('Lothus - Jornalistas')
+		.setThumbnail(msg.author.avatarURL)
+		.setDescription('Um novo tópico jornalístico foi criado.')
+		.addField('Link:', `${change}`)
+		.addField('Autor:', `${msg.author}`)
+		.setTimestamp()
+		.setColor("#00FFFF");
+
+		msg.channel.send(embed);
 		msg.delete().catch(O_o=>{});
 	}
 
