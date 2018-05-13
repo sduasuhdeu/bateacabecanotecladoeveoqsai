@@ -83,7 +83,7 @@ client.on('message', msg =>{
 	if(msg.content.startsWith("!jornalista")) {
 
 
-		if(!msg.member.roles.find("name", "📝 Jornalista ")) {
+		if(!msg.member.roles.find("name", "📝 Jornalista")) {
 			msg.channel.send(":x: **Acesso Negado:** Operação cancelada.");
 			return;
 		}
