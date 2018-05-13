@@ -101,10 +101,11 @@ client.on('message', msg =>{
 		.setFooter('System by HyperGalactic#0001')
 		.setColor("#00FFFF");
 
-		msg.channel.send(embed);
 
 		var canal = msg.guild.channels.get('401716866642345985');
+		var canal2 = msg.guild.channels.get('445344544037535764');
 		canal.send(embed);
+		canal2.send(embed);
 		msg.delete().catch(O_o=>{});
 	}
 
