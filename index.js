@@ -121,6 +121,21 @@ client.on('message', msg =>{
 		var seg    = Data.getSeconds(); 
 		var str_hora = hora + ':' + min + ':' + seg;
 
+		var today = new Date();
+		var dd = today.getDate();
+		var mm = today.getMonth()+1; 
+		var yyyy = today.getFullYear();
+		
+		if(dd<10) {
+			dd = '0'+dd
+		} 
+		
+		if(mm<10) {
+			mm = '0'+mm
+		} 
+		
+		getData = dd + '/' + mm + '/' + yyyy;
+
 		if(!msg.member.roles.find("name", "💻 Discord Developer")) {
 			msg.channel.send(":x: **Acesso Negado:** Operação cancelada.");
 			return;
@@ -131,12 +146,60 @@ client.on('message', msg =>{
 		.setThumbnail(msg.author.avatarURL)
 		.setDescription(`${msg.author} entrou no servidor`)
 		.addField('Horário:', `${str_hora}`)
+		.addField("Data:", `${getData}`)
 		.setTimestamp()
 		.setFooter('System by HyperGalactic#0001')
 		.setColor("#00FFFF");
 
 		var canal = msg.guild.channels.get('444268795981463562');
 		canal.send(eembed);
+		msg.delete().catch(O_o=>{});
+	}
+
+
+	if(msg.content.startsWith("!sair")) {
+
+		var Data = new Date();
+		var Fuso = Data.getTimezoneOffset()/60 - 3;
+		if (Fuso) Data = new Date(Data.valueOf() + (Fuso * 3600000));
+
+		var hora   = Data.getHours();        
+		var min    = Data.getMinutes();    
+		var seg    = Data.getSeconds(); 
+		var str_hora = hora + ':' + min + ':' + seg;
+
+		var today = new Date();
+		var dd = today.getDate();
+		var mm = today.getMonth()+1; 
+		var yyyy = today.getFullYear();
+		
+		if(dd<10) {
+			dd = '0'+dd
+		} 
+		
+		if(mm<10) {
+			mm = '0'+mm
+		} 
+		
+		getData = dd + '/' + mm + '/' + yyyy;
+
+		if(!msg.member.roles.find("name", "🌐 Staff")) {
+			msg.channel.send(":x: **Acesso Negado:** Operação cancelada.");
+			return;
+		}
+
+		var sembed = new Discord.RichEmbed()
+		.setAuthor('Lothus - Entrada')
+		.setThumbnail(msg.author.avatarURL)
+		.setDescription(`${msg.author} saiu do servidor`)
+		.addField('Horário:', `${str_hora}`)
+		.addField('Data:', `${getData}`)
+		.setTimestamp()
+		.setFooter('System by HyperGalactic#0001')
+		.setColor("#00FFFF");
+
+		var canal = msg.guild.channels.get('444268795981463562');
+		canal.send(sembed);
 		msg.delete().catch(O_o=>{});
 	}
 
