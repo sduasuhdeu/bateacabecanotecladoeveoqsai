@@ -189,7 +189,7 @@ client.on('message', msg =>{
 		}
 
 		var sembed = new Discord.RichEmbed()
-		.setAuthor('Lothus - Entrada')
+		.setAuthor('Lothus - Saída')
 		.setThumbnail(msg.author.avatarURL)
 		.setDescription(`${msg.author} saiu do servidor`)
 		.addField('Horário:', `${str_hora}`)
