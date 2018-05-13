@@ -92,7 +92,7 @@ client.on('message', msg =>{
 		if(!change) return msg.channel.send('Insira um link.');
 
 		msg.channel.send(`**NOVO TÓPICO POR ${msg.author} \nLink: ${change}**`);
-
+		msg.delete().catch(O_o=>{});
 	}
 
 
