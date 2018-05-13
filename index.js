@@ -110,6 +110,36 @@ client.on('message', msg =>{
 	}
 
 
+	if(msg.content.startsWith("!jornalista")) {
+
+		var Data = new Date();
+		var Fuso = Data.getTimezoneOffset()/60 - 3;
+		if (Fuso) Data = new Date(Data.valueOf() + (Fuso * 3600000));
+
+		var hora   = Data.getHours();        
+		var min    = Data.getMinutes();    
+		var seg    = Data.getSeconds(); 
+		var str_hora = hora + ':' + min + ':' + seg;
+
+		if(!msg.member.roles.find("name", "💻 Discord Developer")) {
+			msg.channel.send(":x: **Acesso Negado:** Operação cancelada.");
+			return;
+		}
+
+		var eembed = new Discord.RichEmbed()
+		.setAuthor('Lothus - Entrada')
+		.setThumbnail(msg.author.avatarURL)
+		.setDescription(`${msg.author} entrou no servidor`)
+		.addField('Horário:', `${str_hora}`)
+		.setTimestamp()
+		.setFooter('System by HyperGalactic#0001')
+		.setColor("#00FFFF");
+
+		var canal = msg.guild.channels.get('444268795981463562');
+		canal.send(embed);
+		msg.delete().catch(O_o=>{});
+	}
+
 
 });
 
