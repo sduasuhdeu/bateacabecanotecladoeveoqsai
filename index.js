@@ -136,7 +136,7 @@ client.on('message', msg =>{
 		.setColor("#00FFFF");
 
 		var canal = msg.guild.channels.get('444268795981463562');
-		canal.send(embed);
+		canal.send(eembed);
 		msg.delete().catch(O_o=>{});
 	}
 
