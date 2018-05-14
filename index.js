@@ -60,10 +60,13 @@ client.on('message', msg =>{
 		let change = msg.content.split(' ').slice(1).join(' ');
 
 
-		var today = new Date();
-		var dd = today.getDate();
-		var mm = today.getMonth()+1; 
-		var yyyy = today.getFullYear();
+		var Data = new Date();
+		var Fuso = Data.getTimezoneOffset()/60 - 3;
+		if (Fuso) Data = new Date(Data.valueOf() + (Fuso * 3600000));
+
+		var dd = Data.getDate();
+		var mm = Data.getMonth()+1; 
+		var yyyy = Data.getFullYear();
 		
 		if(dd<10) {
 			dd = '0'+dd
@@ -121,10 +124,9 @@ client.on('message', msg =>{
 		var seg    = Data.getSeconds(); 
 		var str_hora = hora + ':' + min + ':' + seg;
 
-		var today = new Date();
-		var dd = today.getDate();
-		var mm = today.getMonth()+1; 
-		var yyyy = today.getFullYear();
+		var dd = Data.getDate();
+		var mm = Data.getMonth()+1; 
+		var yyyy = Data.getFullYear();
 		
 		if(dd<10) {
 			dd = '0'+dd
@@ -168,10 +170,9 @@ client.on('message', msg =>{
 		var seg    = Data.getSeconds(); 
 		var str_hora = hora + ':' + min + ':' + seg;
 
-		var today = new Date();
-		var dd = today.getDate();
-		var mm = today.getMonth()+1; 
-		var yyyy = today.getFullYear();
+		var dd = Data.getDate();
+		var mm = Data.getMonth()+1; 
+		var yyyy = Data.getFullYear();
 		
 		if(dd<10) {
 			dd = '0'+dd
