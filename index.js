@@ -101,7 +101,7 @@ client.on('message', msg =>{
 		.addField('Link:', `${change}`)
 		.addField('Autor:', `${msg.author}`)
 		.setTimestamp()
-		.setFooter('System by HyperGalactic#0001')
+		.setFooter('Lothus - Utilidades')
 		.setColor("#00FFFF");
 
 
@@ -150,8 +150,8 @@ client.on('message', msg =>{
 		.addField('Horário:', `${str_hora}`)
 		.addField("Data:", `${getData}`)
 		.setTimestamp()
-		.setFooter('System by HyperGalactic#0001')
-		.setColor("#00FFFF");
+		.setFooter('Lothus - Utilidades')
+		.setColor("#0fff00");
 
 		var canal = msg.guild.channels.get('444268795981463562');
 		canal.send(eembed);
@@ -196,8 +196,8 @@ client.on('message', msg =>{
 		.addField('Horário:', `${str_hora}`)
 		.addField('Data:', `${getData}`)
 		.setTimestamp()
-		.setFooter('System by HyperGalactic#0001')
-		.setColor("#00FFFF");
+		.setFooter('Lothus - Utilidades')
+		.setColor("#ff0000");
 
 		var canal = msg.guild.channels.get('444268795981463562');
 		canal.send(sembed);
