@@ -4,7 +4,7 @@ const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
 const superagent = require('superagent');
 const Webhook = require('webhook-discord');
-const LothusHook = new Webhook('https://discordapp.com/api/webhooks/444692509554245632/nXKkOHrD5U6ZgcjEVHsUtVI4IUpE6IfE_MVWx4UiJ7yYZYWKhfZGyUNsUiOwRV3DBwnI', 'Lothus - ChangeLog', )
+const LothusHook = new Webhook(process.env.HOOK, 'Lothus - ChangeLog', )
 
 const client = new Discord.Client();
 
@@ -139,7 +139,6 @@ client.on('message', msg =>{
 		getData = dd + '/' + mm + '/' + yyyy;
 
 		if(!msg.member.roles.find("name", "🌐 Staff")) {
-			msg.channel.send(":x: **Acesso Negado:** Operação cancelada.");
 			return;
 		}
 
@@ -185,7 +184,6 @@ client.on('message', msg =>{
 		getData = dd + '/' + mm + '/' + yyyy;
 
 		if(!msg.member.roles.find("name", "🌐 Staff")) {
-			msg.channel.send(":x: **Acesso Negado:** Operação cancelada.");
 			return;
 		}
 
